@@ -39,7 +39,7 @@ The system manages records for **clients** and **employees** of the marketing ag
 ## Getting Started
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/marketing-agency-info-system.git
+    git clone https://github.com/MilicaVujic/bsep_web_app.git
     ```
 2. Set up the backend:
     - Install Java 17
@@ -56,7 +56,10 @@ The system manages records for **clients** and **employees** of the marketing ag
 ## Contributors
 - **Milica Vujić** 
 
-- **Other Contributors**
+- **Other Contributors:**
 - Anja Lovrić
 - Ivana Kovačević
 - Anja Dučić
+
+-
+-![Login page](./loginpage.png)

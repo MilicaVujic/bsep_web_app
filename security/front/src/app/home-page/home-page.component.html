@@ -1,0 +1,35 @@
+<div>
+  <span class="custom-span">
+    <button (click)="onRegistrationRequests()" class="custom-button" *ngIf="isLoggedIn() && isAdmin()">
+      Registration requests
+    </button>
+    <button *ngIf="isLoggedIn() && isAdmin()" (click)="onPermissionManage()"  class="custom-button">
+      Permission Manage
+    </button>
+  <button *ngIf="isLoggedIn() && isAdmin()" (click)="onClientsManagment()"  class="custom-button">
+    Clients managment
+  </button>
+    <button (click)="onRegisterAdminForm()" class="custom-button" *ngIf="isLoggedIn() && isAdmin()">Register admin</button>
+    <button (click)="onRegisterEmployeeForm()" class="custom-button" *ngIf="isLoggedIn() && isAdmin()">Register employee</button>
+    <button (click)="onEmployeesView()" class="custom-button" *ngIf="isLoggedIn() && isAdmin()">Employees</button>
+    <button (click)="onClientsView()" class="custom-button" *ngIf="isLoggedIn() && isAdmin()">Clients</button>
+    <button (click)="onVPN()" class="custom-button" *ngIf="isLoggedIn()">VPN</button>
+
+    <button *ngIf="isLoggedIn() && isEmployee()" (click)="onEmployeeProfileView()" class="custom-button">Employee profile</button>
+    <button *ngIf="isLoggedIn() && isAdmin()" (click)="onAdminProfileView()" class="custom-button">Admin profile</button>
+    <button *ngIf="isLoggedIn() && isClient()" (click)="onClientProfileView()" class="custom-button">Client profile</button>
+    <button *ngIf="isLoggedIn() && isClient()" (click)="onCreateAdvertisementRequest()" class="custom-button">New adv request</button>
+    <button *ngIf="isLoggedIn() && isEmployee()" (click)="onAdvertisementRequestView()" class="custom-button">
+     Advertisement requests
+    </button>
+    <button *ngIf="isLoggedIn() && (isEmployee() || isClient())" (click)="onAdvertisementsView()" class="custom-button">
+      All advertisements
+    </button>
+
+
+        <button *ngIf="expired" (click)="onRegenerateAccessToken()"  class="custom-button">
+          RefreshToken
+        </button>
+        <button (click)="logout()" class="custom-button">Log out</button>
+    </span>
+</div>

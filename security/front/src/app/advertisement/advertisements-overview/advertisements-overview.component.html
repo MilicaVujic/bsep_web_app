@@ -1,0 +1,19 @@
+<h1>Advertisements</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Slogan</th>
+      <th>Duration</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of advertisements">
+      <td>{{ request.description }}</td>
+      <td>{{ request.slogan}}</td>
+      <td>{{ request.duration}}</td>
+      <td><button (click)="viewDetails(request.id)">View</button></td>
+    </tr>
+  </tbody>
+</table>

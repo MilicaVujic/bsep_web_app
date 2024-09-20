@@ -1,0 +1,60 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Postavlja elemente u vertikalnu kolonu */
+}
+
+.container button {
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: #ccc; /* siva boja */
+  color: black; /* crna boja slova */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.container button:hover {
+  background-color: #bbb; /* tamnija siva boja */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.roles-table th, .roles-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.roles-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.roles-table button {
+  padding: 6px 12px;
+  background-color: #ccc; /* siva boja */
+  color: black; /* crna boja slova */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.roles-table button:hover {
+  background-color: #bbb; /* tamnija siva boja */
+}

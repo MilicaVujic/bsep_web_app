@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set container height to full viewport height */
+}
+
+.login-container {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items horizontally */
+    margin-bottom: 10px; /* Add margin between input groups */
+}
+.input-group-email {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items horizontally */
+    margin-bottom: 10px; /* Add margin between input groups */
+    margin-left:28px
+}
+
+.input-group label {
+    margin-right: 10px; /* Add space between label and input field */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 200px; /* Set input width */
+    height: 30px; /* Set input height */
+}
+
+.yellow-button {
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.yellow-button:hover {
+    background-color: rgb(118, 117, 117); /* Change background color on hover */
+}

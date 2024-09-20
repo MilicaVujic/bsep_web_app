@@ -1,0 +1,20 @@
+.yellow-button {
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.yellow-button:hover {
+    background-color: rgb(118, 117, 117); /* Change background color on hover */
+}
+.custom-span {
+    display: flex;
+    height: 1cm;
+    background-color: #337ab7;
+    color: #fff;
+    
+}

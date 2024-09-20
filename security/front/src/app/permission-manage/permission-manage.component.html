@@ -1,0 +1,34 @@
+<div class="container">
+    <button (click)="onRoleAdmin()">Role admin</button>
+    <button (click)="onRoleClient()">Role client</button>
+    <button (click)="onRoleEmployee()">Role employee</button>
+    <h2>Permission Manage</h2>
+    <table class="roles-table" *ngIf="visiblePermissions">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of unexistingPermissions">
+          <td>{{ p.name }}</td>
+          <td><button (click)="onAdd(p)">Add</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="roles-table" *ngIf="visiblePermissions">
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of existingPermissions">
+            <td>{{ p.name }}</td>
+            <td><button (click)="onRemove(p)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  

@@ -1,0 +1,35 @@
+<div *ngIf="registrationRequests">
+  <h2>Registration Requests</h2>
+  <br>
+  <br>
+  <div *ngIf="explanationVisibility">
+    <label>Enter the reason for rejecting the request:</label>
+    <input type="text" id="explanation" name="explanation" [(ngModel)]="explanation" required>
+    <button (click)="rejectRequest()">Confirm</button>
+  </div>
+  <table class="registration-requests-table">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let property of registrationRequests[0] | keyvalue">
+          <ng-container *ngIf="property.key !== 'password' && property.key !== 'id'">
+            <th>{{ property.key }}</th>
+          </ng-container>
+        </ng-container>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of registrationRequests">
+        <ng-container *ngFor="let property of request | keyvalue">
+          <ng-container *ngIf="property.key !== 'password' && property.key !== 'id'">
+            <td>{{ property.value }}</td>
+          </ng-container>
+        </ng-container>
+        <td>
+          <button *ngIf="request.requestStatus === 'NEW'" (click)="acceptRequest(request)">ACCEPT</button>
+          <button *ngIf="request.requestStatus === 'NEW'" (click)="changeExplantaionVisibility(request)">REJECT</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

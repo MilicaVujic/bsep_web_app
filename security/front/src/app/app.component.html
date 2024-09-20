@@ -1,0 +1,13 @@
+<div>
+  <span class="custom-span">
+  <button *ngIf="!isLoggedIn()" (click)="onLogin()" class="yellow-button">
+    Login
+  </button>
+  <button *ngIf="isLoggedIn()" (click)="onLogout()" class="yellow-button">
+    Logout
+  </button>
+</span>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

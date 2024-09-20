@@ -1,0 +1,189 @@
+<div class="profile-container">
+  <div class="profile">
+    <h2 class="profile-heading">Admin profile</h2>
+
+    <div class="profile-group">
+      <label for="email" class="fancy-label">Email:</label>
+      <div for="email" class="fancy-span">{{ user.email }}</div>
+    </div>
+
+    <div class="profile-group">
+      <label for="firstName" class="fancy-label">First Name:</label>
+      <span for="email" class="fancy-span">{{ user.firstName }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="lastName" class="fancy-label">Last Name:</label>
+      <span for="email" class="fancy-span">{{ user.lastName }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="city" class="fancy-label">City:</label>
+      <span for="email" class="fancy-span">{{ user.address.city }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="country" class="fancy-label">Country:</label>
+      <span for="email" class="fancy-span">{{ user.address.country }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="country" class="fancy-label">Street:</label>
+      <span for="email" class="fancy-span">{{ user.address.street }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="country" class="fancy-label">Street number:</label>
+      <span for="email" class="fancy-span">{{
+        user.address.streetNumber
+      }}</span>
+    </div>
+
+    <div class="profile-group">
+      <label for="phoneNumber" class="fancy-label">Phone Number:</label>
+      <span for="email" class="fancy-span">{{ user.phone }}</span>
+    </div>
+
+    <button type="button" class="profile-edit-btn" (click)="onEditMode()">
+      {{ "Edit Profile" }}
+    </button>
+  </div>
+
+  <div *ngIf="editMode" class="edit-form">
+    <form [formGroup]="userForm">
+      <h2 class="profile-heading">Edit Profile</h2>
+
+      <label for="oldPassword" class="fancy-label-1">Old password:</label>
+      <input
+        type="password"
+        id="oldPassword"
+        name="oldPassword"
+        formControlName="oldPassword"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isOldPasswordInvalid" class="error-message fancy-error">
+        Old password is required.
+      </div>
+
+      <label for="password" class="fancy-label-1">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isPasswordInvalid" class="error-message fancy-error">
+        Password is required.
+      </div>
+
+      <label for="confirmPassword" class="fancy-label-1"
+        >Confirm Password:</label
+      >
+      <input
+        type="password"
+        id="password"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isConfirmPasswordInvalid" class="error-message fancy-error">
+        Please confirm password.
+      </div>
+
+      <label for="firstName" class="fancy-label-1">First Name:</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        formControlName="firstName"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isNameInvalid" class="error-message fancy-error">
+        First name is required, must start with capital letter.
+      </div>
+
+      <label for="lastName" class="fancy-label-1">Last Name:</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        formControlName="lastName"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isSurnameInvalid" class="error-message fancy-error">
+        Last name is required, must start with capital letter.
+      </div>
+      <label for="phone" class="fancy-label-1">Phone Number:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        formControlName="phone"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isNumberInvalid" class="error-message fancy-error">
+        Phone number is required, must contain 9 or 10 digits.
+      </div>
+    </form>
+    <form [formGroup]="addressForm">
+      <label for="city" class="fancy-label-1">City:</label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        formControlName="city"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isCityInvalid" class="error-message fancy-error">
+        City is required, must start with capital letter.
+      </div>
+
+      <label for="country" class="fancy-label-1">Country:</label>
+      <input
+        type="text"
+        id="country"
+        name="country"
+        formControlName="country"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isCountryInvalid" class="error-message fancy-error">
+        Country is required, must start with capital letter.
+      </div>
+
+      <label for="street" class="fancy-label-1">Street:</label>
+      <input
+        type="text"
+        id="street"
+        name="street"
+        formControlName="street"
+        required
+        class="fancy-input"
+      />
+      <div *ngIf="isStreetInvalid" class="error-message fancy-error">
+        Street is required, must start with capital letter.
+      </div>
+
+      <label for="street" class="fancy-label-1">Street number:</label>
+      <input
+        type="text"
+        id="streetNumber"
+        name="streetNumber"
+        formControlName="streetNumber"
+        class="fancy-input"
+      />
+
+      <button type="button" (click)="updateProfile()" class="fancy-btn">
+        {{ editMode ? "Save Changes" : "Edit Profile" }}
+      </button>
+    </form>
+  </div>
+</div>

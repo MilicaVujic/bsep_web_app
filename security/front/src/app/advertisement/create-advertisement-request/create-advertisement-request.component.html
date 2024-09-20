@@ -1,0 +1,34 @@
+<form (ngSubmit)="submitForm()" #advertisementForm="ngForm">
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="advertisement.description" required></textarea>
+    </div>
+    <div *ngIf="advertisement.description==''" class="error-message fancy-error" style="color: red"> 
+      Required field.
+    </div>
+    <div class="form-group">
+      <label for="deadline">Expiration time</label>
+      <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="advertisement.expirationTime" required #expirationTime="ngModel">
+      <div *ngIf="!advertisement.activityEnd && expirationTime.touched" style="color: red">
+        <small class="text-danger">Expiration date is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start activity:</label>
+      <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="advertisement.activityStart" required #startDate="ngModel">
+      <div *ngIf="!advertisement.activityEnd && startDate.touched" style="color: red">
+        <small class="text-danger">Start activity date is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="endDate">End activity:</label>
+      <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="advertisement.activityEnd" #endDate="ngModel"  required>
+      <div *ngIf="!advertisement.activityEnd && endDate.touched" style="color: red">
+        <small class="text-danger">End activity date is required.</small>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  

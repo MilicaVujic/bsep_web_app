@@ -1,0 +1,25 @@
+<h1>Advertisement Requests</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Expiration Time</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of advertisementRequests">
+      <td>{{ request.id }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.expirationTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{ request.activityStart | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{ request.activityEnd | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{ request.requestStatus}}</td>
+      <td><button (click)="openForm(request.id)" *ngIf="request.requestStatus=='NEW'">Create</button></td>
+    </tr>
+  </tbody>
+</table>

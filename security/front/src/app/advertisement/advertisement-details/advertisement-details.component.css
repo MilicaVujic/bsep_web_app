@@ -1,0 +1,28 @@
+/* src/app/advertisement-details/advertisement-details.component.css */
+.advertisement-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Visina od 100% vidljive visine prozora */
+    background-color: #f0f0f0; /* Svetlo siva pozadina */
+  }
+  
+  .advertisement-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 300px;
+    background-color: #fff;
+  }
+  
+  .advertisement-card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .advertisement-card p {
+    color: #666;
+    margin: 8px 0;
+  }
+  

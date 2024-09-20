@@ -1,0 +1,19 @@
+[ req ]
+default_bits           = 2048
+distinguished_name     = req_distinguished_name
+req_extensions         = req_ext
+
+[req_distinguished_name]
+C = RS
+ST = Vojvodina
+L = Novi Sad
+O = ftn
+OU = ftn
+CN = ftn
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1   = localhost
+DNS.2   = 127.0.0.1

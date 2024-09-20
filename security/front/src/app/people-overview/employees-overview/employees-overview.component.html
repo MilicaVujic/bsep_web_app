@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Employees</h1>
+  <div class="cards-container">
+    <div *ngFor="let employee of employees" class="card">
+      <h2>{{ employee.firstName }} {{ employee.lastName }}</h2>
+      <p>Email: {{ employee.email }}</p>
+      <p>Country: {{ employee.address.country }}</p>
+      <p>City: {{ employee.address.city }}</p>
+      <p>Street: {{ employee.address.street }}</p>
+      <p>Street number: {{ employee.address.streetNumber }}</p>
+      <p>Phone Number: {{ employee.phone }}</p>
+    </div>
+  </div>
+</div>

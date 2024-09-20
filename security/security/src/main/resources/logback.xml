@@ -1,0 +1,189 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="logs/app.log"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each archived file, size max 5MB -->
+            <maxFileSize>5MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20MB,
+				it will delete old archived file -->
+            <totalSizeCap>20MB</totalSizeCap>
+            <!-- 60 days to keep -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} | [%thread] | %-5level | [%logger{36}]] - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>http://localhost:3100/loki/api/v1/push</url>
+        </http>
+        <format>
+            <label>
+                <pattern>app=${name},host=${HOSTNAME},level=%level</pattern>
+                <readMarkers>true</readMarkers>
+            </label>
+            <message>
+                <pattern>
+                    {
+                    "level":"%level",
+                    "class":"%logger{36}",
+                    "thread":"%thread",
+                    "message": "%message",
+                    "requestId": "%X{X-Request-ID}"
+                    }
+                </pattern>
+            </message>
+        </format>
+    </appender>
+
+    <!-- <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>smtp.gmail.com</smtpHost>
+        <smtpPort>587</smtpPort>
+        <STARTTLS>true</STARTTLS>
+        <username>emailid</username>
+        <password>password</password>
+        <to>emailid</to>
+        <from>emailid</from>
+        <subject>TESTING: %logger{20} - %m</subject>
+
+        <layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+    </appender>-->
+
+    <!--<logger name="com.dailycodebuffer" level="error" additivity="false">
+        <appender-ref ref="EMAIL"/>
+    </logger>
+
+    <logger name="com.dailycodebuffer" level="trace" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>-->
+
+    <!-- <root level="error">
+        <appender-ref ref="FILE-ROLLING"/>
+    </root> -->
+
+    <!-- Promenite ovaj deo kako bi se logovi ispisivali na konzolu -->
+    <!--<root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>-->
+
+    <logger name="com.example.security.controller.UserController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.AdvertisementController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.AdvertisementRequestController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.AuthenticationController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.PermissionController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.RegistrationRequestController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.controller.VPNController" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+
+    <logger name="com.example.security.service.UserService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.ActivationLinkService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.AdvertisementRequestService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.AdvertisementService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.ClientService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.CustomUserDetailsService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.EmailService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.PermissionService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.RateLimiterService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.RegistrationRequestService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </logger>
+    <logger name="com.example.security.service.TfaAuthentication" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+    <logger name="com.example.security.service.RoleService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="LOKI" />
+    </root>
+
+
+</configuration>

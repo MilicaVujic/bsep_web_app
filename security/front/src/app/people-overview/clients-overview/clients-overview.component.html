@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Clients</h1>
+    <div class="cards-container">
+      <div *ngFor="let client of clients" class="card">
+        <h2>{{ client.firstName }} {{ client.lastName }}</h2>
+        <p>Email: {{ client.email }}</p>
+        <p>Country: {{ client.address.country }}</p>
+        <p>City: {{ client.address.city }}</p>
+        <p>Street: {{ client.address.street }}</p>
+        <p>Street number: {{ client.address.streetNumber }}</p>
+        <p>Phone Number: {{ client.phone }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,107 @@
+<div class="profile-container">
+  <div class="profile">
+  <h2 class="profile-heading">Registration Form</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+    <div>
+      <label for="email" class="fancy-label-1">Email:</label>
+      <input class="fancy-input" type="email" id="email" name="email" formControlName="email" [(ngModel)]="registrationRequest.email" required>
+      <span *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" style="color: red">
+        Email is required!
+      </span>
+    </div>
+    <div>
+      <label for="password" class="fancy-label-1">Password:</label>
+      <input class="fancy-input" type="password" id="password" name="password" formControlName="password" [(ngModel)]="registrationRequest.password" required>
+      <span *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" style="color: red">
+        Password is required - Password must contain at least one number, one uppercase letter, one lowercase letter, and one special character.
+        !
+      </span>
+    </div>
+      <div>
+        <label for="repeatedPassword" class="fancy-label-1">Confirm password:</label>
+        <input class="fancy-input" type="password" id="repeatedPassword" name="repeatedPassword" formControlName="repeatedPassword"
+        required>
+        <span *ngIf="isRepatPasswordIsEmpty()" style="color: #fdb5b5">
+          This field is required!
+        </span>
+        <br />
+        <span *ngIf="!isPasswordCorrect()" style="color: red">
+          The entered and repeated passwords don't match!
+        </span>
+
+      </div>
+      <div>
+        <label for="phone" class="fancy-label-1">Phone number:</label>
+        <input class="fancy-input" type="text" id="phone" name="phone" [(ngModel)]="registrationRequest.phone" formControlName="phone" required>
+        <span *ngIf="registrationForm.get('phone')?.invalid && registrationForm.get('phone')?.touched" style="color: red">
+          Phone is required!
+        </span>
+      </div>
+      <div>
+        <label for="country" class="fancy-label-1">Country:</label>
+        <input class="fancy-input" type="text" id="country" name="country" formControlName="country"  [(ngModel)]="registrationRequest.country"  required>
+        <span *ngIf="registrationForm.get('country')?.invalid && registrationForm.get('country')?.touched" style="color: red">
+          Country is required!
+        </span>
+      </div>
+      <div>
+        <label for="city" class="fancy-label-1">City:</label>
+        <input class="fancy-input" type="text"  id="city" name="city" formControlName="city" [(ngModel)]="registrationRequest.city"  required>
+        <span *ngIf="registrationForm.get('city')?.invalid && registrationForm.get('city')?.touched" style="color: red">
+          City is required!
+        </span>
+      </div>
+      <div>
+        <label for="street" class="fancy-label-1">Street:</label>
+        <input class="fancy-input" type="text" id="street" name="street" formControlName="street" [(ngModel)]="registrationRequest.street"  required>
+        <span *ngIf="registrationForm.get('street')?.invalid && registrationForm.get('street')?.touched" style="color: red">
+          Street is required!
+        </span>
+      </div>
+      <div>
+        <label for="streetNumber" class="fancy-label-1">Street number:</label>
+        <input class="fancy-input" type="text" id="streetNumber" name="streetNumber" formControlName="streetNumber" [(ngModel)]="registrationRequest.streetNumber"  required>
+        <span *ngIf="registrationForm.get('streetNumber')?.invalid && registrationForm.get('streetNumber')?.touched" style="color: red">
+          Street number is required!
+        </span>
+      </div>
+      <div>
+        <label for="type" class="fancy-label-1">Type:</label>
+        <select id="type" class="fancy-input" name="type" [(ngModel)]="registrationRequest.type" formControlName="type" required>
+          <option value="FIZICKO">Fizicko</option>
+          <option value="PRAVNO">Pravno</option>
+        </select>
+      </div>
+      <div>
+        <label for="name" class="fancy-label-1">Name:</label>
+        <input class="fancy-input" type="text" id="name" name="name" formControlName="name"  [(ngModel)]="registrationRequest.name"  required>
+        <span *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" style="color: red">
+          Name is required!
+        </span>
+      </div>
+      <div *ngIf="registrationRequest.type=='FIZICKO'">
+        <label for="surname" class="fancy-label-1">Surname:</label>
+        <input class="fancy-input" type="text" id="surname" name="surname" formControlName="surname" [(ngModel)]="registrationRequest.surname"  required>
+        <span *ngIf="registrationForm.get('surname')?.invalid && registrationForm.get('surname')?.touched" style="color: red">
+          Surname is required!
+        </span>
+      </div>
+      <div *ngIf="registrationRequest.type=='PRAVNO'">
+        <label for="pib" class="fancy-label-1">Pib:</label>
+        <input class="fancy-input" type="text" id="pib" name="pib" formControlName="pib" [(ngModel)]="registrationRequest.pib"  required>
+        <span *ngIf="registrationForm.get('pib')?.invalid && registrationForm.get('pib')?.touched"  style="color: red">
+          Pib is required!(9 numbers)
+        </span>
+      </div>
+      <div>
+        <label for="packageType" class="fancy-label-1">Package Type:</label>
+        <select id="packageType" class="fancy-input" name="packageType" [(ngModel)]="registrationRequest.packageType" formControlName="packageType" required>
+          <option value="BASIC">Basic</option>
+          <option value="STANDARD">Standard</option>
+          <option value="GOLD">Gold</option>
+        </select>
+      </div>
+      <button type="submit" class="fancy-btn">Register</button>
+    </form>
+  </div>
+  </div>

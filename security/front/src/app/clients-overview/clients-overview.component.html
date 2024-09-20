@@ -1,0 +1,32 @@
+<h1>Client and employees managment</h1>
+<br>
+<br>
+<div>
+  <table  class="registration-requests-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>PIB</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.pib }}</td>
+        <td><span *ngIf="!user.blocked"><button  (click)="onBlock(user)">BLOCK</button></span><span *ngIf="user.blocked"><button (click)="onUnblock(user)">UNBLOCK</button></span></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

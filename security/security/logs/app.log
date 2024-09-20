@@ -1054,3 +1054,7 @@ java.lang.NullPointerException: Cannot invoke "javax.crypto.SecretKey.getEncoded
 2024-09-20 15:53:56,004 INFO com.example.security.service.CustomUserDetailsService [https-jsse-nio-8443-exec-6] Loading user by username: milicavujic2001@gmail.com
 2024-09-20 15:53:56,154 INFO com.example.security.controller.PermissionController [https-jsse-nio-8443-exec-6] getUnexisting method in PermissionController started.
 2024-09-20 15:53:56,154 INFO com.example.security.service.PermissionService [https-jsse-nio-8443-exec-6] Fetching unexisting permissions for role: ROLE_CLIENT
+2024-09-20 15:53:56,154 INFO com.example.security.service.PermissionService [https-jsse-nio-8443-exec-6] Fetching permissions for role: ROLE_CLIENT
+2024-09-20 15:53:56,154 INFO com.example.security.service.RoleService [https-jsse-nio-8443-exec-6] findByName method started.
+2024-09-20 15:53:56,156 INFO com.example.security.service.PermissionService [https-jsse-nio-8443-exec-6] Successfully fetched permissions for role: ROLE_CLIENT
+2024-09-20 15:53:56,158 INFO com.example.security.service.PermissionService [https-jsse-nio-8443-exec-6] Successfully fetched unexisting permissions for role: ROLE_CLIENT

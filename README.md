@@ -54,8 +54,8 @@ The system manages records for **clients** and **employees** of the marketing ag
         ```
 
 ## Contributors
-- **Milica Vujić** –
-- **Other Contributors**
+- **Milica Vujić** 
+ **Other Contributors**
 - Anja Lovrić
 - Ivana Kovačević
 - Anja Dučić

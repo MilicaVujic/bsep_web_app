@@ -62,4 +62,14 @@ The system manages records for **clients** and **employees** of the marketing ag
 - Anja Dučić
 
 -
+-**Some pages:**
 -![Login page](./loginpage.png)
+-![QR code page](./qrcodepage.png)
+-![Home page](./homepage.png)
+-![Admin profile page](./adminprofilepage.png)
+-![Employee creation page](./createemployeepage.png)
+-![Permission managment page](./permission_managment_page.png)
+
+
+
+
